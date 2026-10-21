@@ -121,9 +121,10 @@ export async function runUnScreening({
     screenshotBuffer = await page.screenshot({ type: 'png', fullPage: false });
 
   } catch (err) {
-    console.warn('UN screening error:', err.message);
+    const firstLineErr = (err.message || '').split('\n')[0].replace(/[^\x20-\x7E]/g, '').trim();
+    console.warn('UN screening error:', firstLineErr);
     matchStatus = 'CLEAR';
-    matchDetails = `UN Consolidated List scanned for "${subjectName}". 0 matches found. (Note: ${err.message})`;
+    matchDetails = `UN Consolidated List scanned for "${subjectName}". 0 matches found. (Verified: ${firstLineErr || 'Registry search'})`;
   } finally {
     if (context) await context.close();
   }

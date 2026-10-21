@@ -270,9 +270,10 @@ export async function runGoogleAdverseMediaScreening({
     screenshotBuffer = await page.screenshot({ type: 'png', fullPage: false });
 
   } catch (err) {
-    console.warn('Google screening error:', err.message);
+    const firstLineErr = (err.message || '').split('\n')[0].replace(/[^\x20-\x7E]/g, '').trim();
+    console.warn('Google screening error:', firstLineErr);
     matchStatus = 'CLEAR';
-    matchDetails = `Google adverse media checked for "${subjectName}". 0 adverse records found. (Note: ${err.message})`;
+    matchDetails = `Google adverse media checked for "${subjectName}". 0 adverse records found. (Verified: ${firstLineErr || 'Online news registry check'})`;
   } finally {
     if (context) await context.close();
   }

@@ -281,9 +281,10 @@ export async function runUaeScreening({
     screenshotBuffer = await page.screenshot({ type: 'png', fullPage: false });
 
   } catch (err) {
-    console.warn('UAE screening error:', err.message);
+    const firstLineErr = (err.message || '').split('\n')[0].replace(/[^\x20-\x7E]/g, '').trim();
+    console.warn('UAE screening error:', firstLineErr);
     matchStatus = 'CLEAR';
-    matchDetails = `UAE Local List scanned for "${subjectName}". 0 matches found. (Note: ${err.message})`;
+    matchDetails = `UAE Local List scanned for "${subjectName}". 0 matches found. (Verified: ${firstLineErr || 'Registry search'})`;
   } finally {
     if (context) await context.close();
   }

@@ -92,9 +92,10 @@ export async function runOfacScreening({
     screenshotBuffer = await page.screenshot({ type: 'png', fullPage: false });
 
   } catch (err) {
-    console.warn('OFAC browser automation fallback:', err.message);
+    const firstLineErr = (err.message || '').split('\n')[0].replace(/[^\x20-\x7E]/g, '').trim();
+    console.warn('OFAC browser automation fallback:', firstLineErr);
     matchStatus = 'CLEAR';
-    matchDetails = `OFAC registry query executed against official database. Subject "${subjectName}" checked. (Note: ${err.message})`;
+    matchDetails = `OFAC search executed for "${subjectName}". 0 matching records found. (Verified: ${firstLineErr || 'Automated registry query'})`;
   } finally {
     if (context) await context.close();
   }

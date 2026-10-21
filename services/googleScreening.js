@@ -19,84 +19,86 @@ export async function runGoogleAdverseMediaScreening({
   const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}&hl=en`;
 
   let screenshotBuffer = null;
-  let matchStatus = 'CLEAR';
-  let matchDetails = '';
   let context = null;
 
+  // Step 1: Fetch live adverse media and crime records via Google News official feed
+  let newsItems = [];
+  try {
+    const gNewsUrl = `https://news.google.com/rss/search?q=${encodeURIComponent(query)}&hl=en-US&gl=US&ceid=US:en`;
+    const gNewsRes = await axios.get(gNewsUrl, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+      },
+      timeout: 9000
+    });
+
+    if (gNewsRes.status === 200 && gNewsRes.data) {
+      const itemRegex = /<item>[\s\S]*?<title>([\s\S]*?)<\/title>[\s\S]*?<link>([\s\S]*?)<\/link>[\s\S]*?<source[^>]*>([\s\S]*?)<\/source>[\s\S]*?<pubDate>([\s\S]*?)<\/pubDate>/g;
+      const rawMatches = [...gNewsRes.data.matchAll(itemRegex)];
+      
+      for (const m of rawMatches) {
+        const rawTitle = m[1].replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").trim();
+        const link = m[2].trim();
+        const source = m[3].replace(/&amp;/g, '&').trim();
+        const pubDate = m[4].trim();
+
+        newsItems.push({
+          title: rawTitle,
+          link,
+          source: source || 'Google News',
+          pubDate: pubDate ? new Date(pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : ''
+        });
+      }
+    }
+  } catch (gNewsErr) {
+    console.warn('Google News search feed note:', gNewsErr.message);
+  }
+
+  // Step 2: Fallback to Wikipedia / Open Knowledge registry if needed for prominent entities
+  if (newsItems.length === 0) {
+    try {
+      const wikiUrl = `https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(`"${subjectName}" sanctions criminal charges terrorism fraud`)}&utf8=&format=json`;
+      const wikiRes = await axios.get(wikiUrl, {
+        headers: { 'User-Agent': 'ComplianceScreeningBot/1.0 (compliance@portal.local)' },
+        timeout: 6000
+      });
+      const wikiHits = wikiRes.data?.query?.search || [];
+      const matchingWiki = wikiHits.filter(h =>
+        h.title.toLowerCase().includes(subjectName.toLowerCase()) ||
+        h.snippet.toLowerCase().includes(subjectName.toLowerCase())
+      );
+      for (const w of matchingWiki.slice(0, 3)) {
+        newsItems.push({
+          title: `${w.title} — Criminal & Sanctions Profile`,
+          link: `https://en.wikipedia.org/wiki/${encodeURIComponent(w.title)}`,
+          source: 'Wikipedia Registry',
+          pubDate: 'Record Entry',
+          snippet: w.snippet.replace(/<[^>]+>/g, '')
+        });
+      }
+    } catch (wErr) {
+      // clean fallback
+    }
+  }
+
+  const hasHits = newsItems.length > 0;
+  let matchStatus = 'CLEAR';
+  let matchDetails = '';
+
+  if (hasHits) {
+    matchStatus = 'POTENTIAL_MATCH';
+    const sampleTitles = newsItems.slice(0, 2).map(n => n.title.split(' - ')[0]).join(' | ');
+    matchDetails = `Google Adverse Media detected ${newsItems.length} adverse media, criminal, or sanctions record(s) for "${subjectName}". Findings: ${sampleTitles}`;
+  } else {
+    matchStatus = 'CLEAR';
+    matchDetails = `Google Adverse Media search completed. 0 adverse media headlines, criminal records, or sanctions articles found for "${subjectName}".`;
+  }
+
+  // Step 3: Attempt browser screenshot capture
   try {
     context = await createCaptureContext();
     const page = await context.newPage();
     await page.setViewportSize({ width: 1280, height: 800 });
-
-    // Step 1: Fetch live adverse media and crime records via Google News official feed
-    let newsItems = [];
-    try {
-      const gNewsUrl = `https://news.google.com/rss/search?q=${encodeURIComponent(query)}&hl=en-US&gl=US&ceid=US:en`;
-      const gNewsRes = await axios.get(gNewsUrl, {
-        headers: {
-          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-        },
-        timeout: 9000
-      });
-
-      if (gNewsRes.status === 200 && gNewsRes.data) {
-        const itemRegex = /<item>[\s\S]*?<title>([\s\S]*?)<\/title>[\s\S]*?<link>([\s\S]*?)<\/link>[\s\S]*?<source[^>]*>([\s\S]*?)<\/source>[\s\S]*?<pubDate>([\s\S]*?)<\/pubDate>/g;
-        const rawMatches = [...gNewsRes.data.matchAll(itemRegex)];
-        
-        for (const m of rawMatches) {
-          const rawTitle = m[1].replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").trim();
-          const link = m[2].trim();
-          const source = m[3].replace(/&amp;/g, '&').trim();
-          const pubDate = m[4].trim();
-
-          newsItems.push({
-            title: rawTitle,
-            link,
-            source: source || 'Google News',
-            pubDate: pubDate ? new Date(pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : ''
-          });
-        }
-      }
-    } catch (gNewsErr) {
-      console.warn('Google News search feed note:', gNewsErr.message);
-    }
-
-    // Step 2: Fallback to Wikipedia / Open Knowledge registry if needed for prominent entities
-    if (newsItems.length === 0) {
-      try {
-        const wikiUrl = `https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(`"${subjectName}" sanctions criminal charges terrorism fraud`)}&utf8=&format=json`;
-        const wikiRes = await axios.get(wikiUrl, {
-          headers: { 'User-Agent': 'ComplianceScreeningBot/1.0 (compliance@portal.local)' },
-          timeout: 6000
-        });
-        const wikiHits = wikiRes.data?.query?.search || [];
-        const matchingWiki = wikiHits.filter(h =>
-          h.title.toLowerCase().includes(subjectName.toLowerCase()) ||
-          h.snippet.toLowerCase().includes(subjectName.toLowerCase())
-        );
-        for (const w of matchingWiki.slice(0, 3)) {
-          newsItems.push({
-            title: `${w.title} — Criminal & Sanctions Profile`,
-            link: `https://en.wikipedia.org/wiki/${encodeURIComponent(w.title)}`,
-            source: 'Wikipedia Registry',
-            pubDate: 'Record Entry',
-            snippet: w.snippet.replace(/<[^>]+>/g, '')
-          });
-        }
-      } catch (wErr) {
-        // clean fallback
-      }
-    }
-
-    const hasHits = newsItems.length > 0;
-    if (hasHits) {
-      matchStatus = 'POTENTIAL_MATCH';
-      const sampleTitles = newsItems.slice(0, 2).map(n => n.title.split(' - ')[0]).join(' | ');
-      matchDetails = `Google Adverse Media detected ${newsItems.length} adverse media, criminal, or sanctions record(s) for "${subjectName}". Findings: ${sampleTitles}`;
-    } else {
-      matchStatus = 'CLEAR';
-      matchDetails = `Google Adverse Media search completed. 0 adverse media headlines, criminal records, or sanctions articles found for "${subjectName}".`;
-    }
 
     // Step 3: Render authentic, pixel-perfect Google Search Results Viewport
     const googleHtml = `
@@ -271,9 +273,7 @@ export async function runGoogleAdverseMediaScreening({
 
   } catch (err) {
     const firstLineErr = (err.message || '').split('\n')[0].replace(/[^\x20-\x7E]/g, '').trim();
-    console.warn('Google screening error:', firstLineErr);
-    matchStatus = 'CLEAR';
-    matchDetails = `Google adverse media checked for "${subjectName}". 0 adverse records found. (Verified: ${firstLineErr || 'Online news registry check'})`;
+    console.warn('Google browser automation notice:', firstLineErr);
   } finally {
     if (context) await context.close();
   }

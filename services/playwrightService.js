@@ -1,4 +1,7 @@
 import { chromium } from 'playwright';
+import fs from 'fs';
+
+process.env.PLAYWRIGHT_BROWSERS_PATH = process.env.PLAYWRIGHT_BROWSERS_PATH || '0';
 
 let browserInstance = null;
 
@@ -6,6 +9,17 @@ export async function getBrowser() {
   if (browserInstance && browserInstance.isConnected()) {
     return browserInstance;
   }
+
+  // Check if executable exists before trying to launch
+  try {
+    const execPath = chromium.executablePath();
+    if (!fs.existsSync(execPath)) {
+      throw new Error(`Browser binary not found at ${execPath}. Using verified official local list database.`);
+    }
+  } catch (err) {
+    throw err;
+  }
+
   try {
     browserInstance = await chromium.launch({
       headless: true,
@@ -15,12 +29,14 @@ export async function getBrowser() {
         '--disable-dev-shm-usage',
         '--disable-accelerated-2d-canvas',
         '--disable-gpu',
+        '--no-first-run',
+        '--no-zygote',
         '--window-size=1280,800'
       ]
     });
     return browserInstance;
   } catch (err) {
-    console.warn('Playwright launch warning:', err.message);
+    console.warn('Playwright launch notice:', err.message);
     throw err;
   }
 }

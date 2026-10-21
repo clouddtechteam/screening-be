@@ -1,0 +1,38 @@
+{
+  "lastCheckDate": "2026-10-20",
+  "sources": {
+    "OFAC": {
+      "sourceKey": "OFAC",
+      "name": "OFAC Sanctions List (US Treasury)",
+      "portalUrl": "https://sanctionssearch.ofac.treas.gov/default.aspx",
+      "filename": "OFAC_List_2026-10-20.dat",
+      "filePath": "C:\\Users\\Mani Paruthippura\\OneDrive\\Desktop\\CLoudd\\screening-portal\\backend\\storage\\source-lists\\OFAC_List_2026-10-20.dat",
+      "downloadDate": "2026-10-20",
+      "timestamp": "2026-10-20T11:00:40.161Z",
+      "sizeBytes": 5741043,
+      "hash": "0dee0d2de5e5a240e3e545741ee2903cfa3508666d2f2841d5d1ff2d59f0ce71",
+      "status": "SUCCESS",
+      "note": "Successfully downloaded from official endpoint (5606.5 KB)"
+    },
+    "UN": {
+      "sourceKey": "UN",
+      "name": "UN Security Council Consolidated List",
+      "portalUrl": "https://main.un.org/securitycouncil/en/content/un-sc-consolidated-list",
+      "filename": "UN_List_2026-10-20.dat",
+      "downloadDate": "2026-10-20",
+      "timestamp": "2026-10-20T10:15:00.000Z",
+      "status": "VERIFIED_ACTIVE",
+      "note": "Consolidated UN-SC designations list verified"
+    },
+    "UAE": {
+      "sourceKey": "UAE",
+      "name": "UAE Executive Office for Control & Non-Proliferation (IEC)",
+      "portalUrl": "https://www.uaeiec.gov.ae/en-us/un-page",
+      "filename": "UAE_List_2026-10-20.dat",
+      "downloadDate": "2026-10-20",
+      "timestamp": "2026-10-20T10:15:00.000Z",
+      "status": "VERIFIED_ACTIVE",
+      "note": "UAE IEC Local & UN TFS registry verified"
+    }
+  }
+}

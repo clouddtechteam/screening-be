@@ -27,7 +27,10 @@ export function scanLocalUnList(searchTerm) {
 export async function runUnScreening({
   subjectName,
   subjectType = 'Individual',
+  clientAccountName = '',
   clientRef = '',
+  selectedDateType = null,
+  selectedDate = null,
   issDate = '',
   expDate = '',
   signedDate = '',
@@ -140,9 +143,12 @@ export async function runUnScreening({
   const filename = generateEvidenceFilename({
     sourceKey: 'UN',
     subjectName,
+    selectedDateType,
+    selectedDate,
     issDate,
     expDate,
-    signedDate
+    signedDate,
+    matchStatus
   });
 
   const outputPath = path.join(outputDir, filename);
@@ -153,6 +159,7 @@ export async function runUnScreening({
     portalUrl,
     subjectName,
     subjectType,
+    clientAccountName,
     clientRef,
     issDate,
     expDate,

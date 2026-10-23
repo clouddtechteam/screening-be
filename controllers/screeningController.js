@@ -46,17 +46,47 @@ export async function startScreening(req, res) {
     const {
       subjectName,
       subjectType = 'Individual', // Individual or Entity
+      clientAccountName = '',
       clientRef = '',
+      selectedDateType = null,
+      selectedDate = null,
       issDate = '',
       expDate = '',
       signedDate = '',
       checkDate = new Date().toISOString().split('T')[0],
+      googleSearchQuery = '',
+      customSearchQuery = '',
       forceRefreshLists = false
     } = req.body;
 
     if (!subjectName || !subjectName.trim()) {
       return res.status(400).json({ error: 'Subject Name (Individual or Entity) is required.' });
     }
+
+    const resolvedAccountName = (clientAccountName || clientRef || '').trim();
+    const effectiveQuery = (googleSearchQuery || customSearchQuery || '').trim();
+
+    // Mutually exclusive single date selection logic
+    let activeDateType = selectedDateType;
+    let activeDateVal = selectedDate;
+
+    if (!activeDateType) {
+      if (issDate && issDate.toLowerCase() !== 'notset') {
+        activeDateType = 'issDate';
+        activeDateVal = issDate;
+      } else if (expDate && expDate.toLowerCase() !== 'notset') {
+        activeDateType = 'expDate';
+        activeDateVal = expDate;
+      } else if (signedDate && signedDate.toLowerCase() !== 'notset') {
+        activeDateType = 'signedDate';
+        activeDateVal = signedDate;
+      }
+    }
+
+    // Keep the other two blank and excluded
+    const activeIssDate = activeDateType === 'issDate' ? activeDateVal : '';
+    const activeExpDate = activeDateType === 'expDate' ? activeDateVal : '';
+    const activeSignedDate = activeDateType === 'signedDate' ? activeDateVal : '';
 
     const caseId = uuidv4();
     const caseDir = path.join(EVIDENCE_BASE_DIR, caseId);
@@ -79,11 +109,15 @@ export async function startScreening(req, res) {
     const commonParams = {
       subjectName: subjectName.trim(),
       subjectType,
-      clientRef,
-      issDate,
-      expDate,
-      signedDate,
+      clientAccountName: resolvedAccountName,
+      clientRef: resolvedAccountName,
+      selectedDateType: activeDateType,
+      selectedDate: activeDateVal,
+      issDate: activeIssDate,
+      expDate: activeExpDate,
+      signedDate: activeSignedDate,
       checkDate,
+      customSearchQuery: effectiveQuery,
       outputDir: caseDir
     };
 
@@ -108,11 +142,15 @@ export async function startScreening(req, res) {
       createdAt: new Date().toISOString(),
       subjectName: subjectName.trim(),
       subjectType,
-      clientRef,
-      issDate,
-      expDate,
-      signedDate,
+      clientAccountName: resolvedAccountName,
+      clientRef: resolvedAccountName,
+      selectedDateType: activeDateType,
+      selectedDate: activeDateVal,
+      issDate: activeIssDate,
+      expDate: activeExpDate,
+      signedDate: activeSignedDate,
       checkDate,
+      googleSearchQuery: effectiveQuery,
       overallStatus,
       sourceListVersions: sourceListStatus,
       files: [
@@ -188,8 +226,24 @@ export async function downloadCasePdf(req, res) {
     return res.status(404).json({ error: 'Requested evidence file not found.' });
   }
 
+  const isInline = req.query.inline === 'true' || req.query.view === 'true';
+  const disposition = isInline ? 'inline' : 'attachment';
+
   res.setHeader('Content-Type', 'application/pdf');
-  res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
+  res.setHeader('Content-Disposition', `${disposition}; filename="${filename}"`);
+  return fs.createReadStream(filePath).pipe(res);
+}
+
+export async function viewCasePdf(req, res) {
+  const { id, filename } = req.params;
+  const filePath = path.join(EVIDENCE_BASE_DIR, id, filename);
+
+  if (!fs.existsSync(filePath)) {
+    return res.status(404).json({ error: 'Requested evidence file not found.' });
+  }
+
+  res.setHeader('Content-Type', 'application/pdf');
+  res.setHeader('Content-Disposition', `inline; filename="${filename}"`);
   return fs.createReadStream(filePath).pipe(res);
 }
 

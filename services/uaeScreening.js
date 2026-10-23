@@ -48,7 +48,10 @@ const UAE_OFFICIAL_ENTRIES = [
 export async function runUaeScreening({
   subjectName,
   subjectType = 'Individual',
+  clientAccountName = '',
   clientRef = '',
+  selectedDateType = null,
+  selectedDate = null,
   issDate = '',
   expDate = '',
   signedDate = '',
@@ -285,9 +288,12 @@ export async function runUaeScreening({
   const filename = generateEvidenceFilename({
     sourceKey: 'UAE',
     subjectName,
+    selectedDateType,
+    selectedDate,
     issDate,
     expDate,
-    signedDate
+    signedDate,
+    matchStatus
   });
 
   const outputPath = path.join(outputDir, filename);
@@ -298,6 +304,7 @@ export async function runUaeScreening({
     portalUrl,
     subjectName,
     subjectType,
+    clientAccountName,
     clientRef,
     issDate,
     expDate,

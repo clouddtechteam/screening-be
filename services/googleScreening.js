@@ -7,15 +7,21 @@ import { generateEvidenceFilename } from './pdfNamingService.js';
 export async function runGoogleAdverseMediaScreening({
   subjectName,
   subjectType = 'Individual',
+  clientAccountName = '',
   clientRef = '',
+  selectedDateType = null,
+  selectedDate = null,
   issDate = '',
   expDate = '',
   signedDate = '',
   checkDate = '',
+  customSearchQuery = '',
   outputDir
 }) {
-  // Industry-standard clean compliance adverse media query (no nested quotes or conflicting operators)
-  const query = `"${subjectName}" criminal OR fraud OR sanctions OR charges OR arrest`;
+  // Use user-customized query if provided, otherwise sensible compliance default
+  const query = (customSearchQuery && customSearchQuery.trim())
+    ? customSearchQuery.trim()
+    : `"${subjectName}" criminal OR fraud OR sanctions OR charges OR arrest`;
   const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}&hl=en`;
 
   let screenshotBuffer = null;
@@ -281,9 +287,12 @@ export async function runGoogleAdverseMediaScreening({
   const filename = generateEvidenceFilename({
     sourceKey: 'ADVERSE_MEDIA',
     subjectName,
+    selectedDateType,
+    selectedDate,
     issDate,
     expDate,
-    signedDate
+    signedDate,
+    matchStatus
   });
 
   const outputPath = path.join(outputDir, filename);
@@ -294,6 +303,7 @@ export async function runGoogleAdverseMediaScreening({
     portalUrl: searchUrl,
     subjectName,
     subjectType,
+    clientAccountName,
     clientRef,
     issDate,
     expDate,

@@ -40,7 +40,10 @@ export function scanLocalOfacList(searchTerm) {
 export async function runOfacScreening({
   subjectName,
   subjectType = 'Individual',
+  clientAccountName = '',
   clientRef = '',
+  selectedDateType = null,
+  selectedDate = null,
   issDate = '',
   expDate = '',
   signedDate = '',
@@ -132,9 +135,12 @@ export async function runOfacScreening({
   const filename = generateEvidenceFilename({
     sourceKey: 'OFAC',
     subjectName,
+    selectedDateType,
+    selectedDate,
     issDate,
     expDate,
-    signedDate
+    signedDate,
+    matchStatus
   });
 
   const outputPath = path.join(outputDir, filename);
@@ -145,6 +151,7 @@ export async function runOfacScreening({
     portalUrl,
     subjectName,
     subjectType,
+    clientAccountName,
     clientRef,
     issDate,
     expDate,

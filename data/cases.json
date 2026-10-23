@@ -1,5 +1,547 @@
 [
   {
+    "id": "a31668e8-9c3d-4a6f-958d-48d3f8a52fe1",
+    "createdAt": "2026-10-23T19:17:35.111Z",
+    "subjectName": "Hassan Ahmed Moukalled",
+    "subjectType": "Individual",
+    "clientAccountName": "test",
+    "clientRef": "test",
+    "selectedDateType": "issDate",
+    "selectedDate": "2026-10-24",
+    "issDate": "2026-10-24",
+    "expDate": "",
+    "signedDate": "",
+    "checkDate": "2026-10-23",
+    "googleSearchQuery": "\"Hassan Ahmed Moukalled\"",
+    "overallStatus": "FLAGGED_FOR_REVIEW",
+    "sourceListVersions": {
+      "OFAC": {
+        "sourceKey": "OFAC",
+        "name": "OFAC Sanctions List (US Treasury)",
+        "portalUrl": "https://sanctionssearch.ofac.treas.gov/default.aspx",
+        "filename": "OFAC_List_2026-10-23.dat",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\Screening-Desktop\\screening-be\\storage\\source-lists\\OFAC_List_2026-10-23.dat",
+        "downloadDate": "2026-10-23",
+        "timestamp": "2026-10-23T18:55:41.409Z",
+        "sizeBytes": 5744136,
+        "hash": "96dade5a1cde8c9746937b4859ad75d8f2a34eed1a4046cc1f2240a830f70bda",
+        "status": "SUCCESS",
+        "note": "Successfully downloaded from official endpoint (5609.5 KB)"
+      },
+      "UN": {
+        "sourceKey": "UN",
+        "name": "UN Security Council Consolidated List",
+        "portalUrl": "https://main.un.org/securitycouncil/en/content/un-sc-consolidated-list",
+        "filename": "UN_List_2026-10-23.dat",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\Screening-Desktop\\screening-be\\storage\\source-lists\\UN_List_2026-10-23.dat",
+        "downloadDate": "2026-10-23",
+        "timestamp": "2026-10-23T18:55:57.523Z",
+        "sizeBytes": 2185396,
+        "hash": "a52a47a62939482afdba2ec2becb86c88a5d6a93875665b4c8f11e99cda1d2a4",
+        "status": "SUCCESS",
+        "note": "Successfully downloaded from official endpoint (2134.2 KB)"
+      },
+      "UAE": {
+        "sourceKey": "UAE",
+        "name": "UAE Executive Office for Control & Non-Proliferation (IEC)",
+        "portalUrl": "https://www.uaeiec.gov.ae/en-us/un-page",
+        "filename": "UAE_List_2026-10-23.dat",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\Screening-Desktop\\screening-be\\storage\\source-lists\\UAE_List_2026-10-23.dat",
+        "downloadDate": "2026-10-23",
+        "timestamp": "2026-10-23T18:56:00.493Z",
+        "sizeBytes": 262140,
+        "hash": "f8431026b60db7e8545d7060a7f18e28380d4d4a2f542ccf6993678e63b40047",
+        "status": "SUCCESS",
+        "note": "Successfully downloaded from official endpoint (256.0 KB)"
+      }
+    },
+    "files": [
+      {
+        "key": "ADVERSE_MEDIA",
+        "sourceName": "Google Adverse Media",
+        "filename": "COMAdverseMedia_HassanAhmedMoukalled_Iss_20261024_Clear.pdf",
+        "matchStatus": "CLEAR",
+        "matchDetails": "Google Adverse Media search completed. 0 adverse media headlines, criminal records, or sanctions articles found for \"Hassan Ahmed Moukalled\".",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\Screening-Desktop\\screening-be\\storage\\evidence\\a31668e8-9c3d-4a6f-958d-48d3f8a52fe1\\COMAdverseMedia_HassanAhmedMoukalled_Iss_20261024_Clear.pdf"
+      },
+      {
+        "key": "OFAC",
+        "sourceName": "OFAC Sanctions Search",
+        "filename": "COMOFAC_HassanAhmedMoukalled_Iss_20261024_NotClear.pdf",
+        "matchStatus": "POTENTIAL_MATCH",
+        "matchDetails": "OFAC Sanctions Search returned 1 potential hit(s) matching query \"Hassan Ahmed Moukalled\".  Human compliance verification required.",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\Screening-Desktop\\screening-be\\storage\\evidence\\a31668e8-9c3d-4a6f-958d-48d3f8a52fe1\\COMOFAC_HassanAhmedMoukalled_Iss_20261024_NotClear.pdf"
+      },
+      {
+        "key": "UN",
+        "sourceName": "UN Consolidated List",
+        "filename": "COMUN_HassanAhmedMoukalled_Iss_20261024_Clear.pdf",
+        "matchStatus": "CLEAR",
+        "matchDetails": "Ctrl+F scan on official UN Consolidated List (Alphabetical order) returned 0 matches for \"Hassan Ahmed Moukalled\". Subject cleared.",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\Screening-Desktop\\screening-be\\storage\\evidence\\a31668e8-9c3d-4a6f-958d-48d3f8a52fe1\\COMUN_HassanAhmedMoukalled_Iss_20261024_Clear.pdf"
+      },
+      {
+        "key": "UAE",
+        "sourceName": "UAE Local List (IEC)",
+        "filename": "COMUAE_HassanAhmedMoukalled_Iss_20261024_NotClear.pdf",
+        "matchStatus": "POTENTIAL_MATCH",
+        "matchDetails": "UAE Local Terrorist List (Executive Office) matched 1 designation(s) for \"Hassan Ahmed Moukalled\". Record: HASSAN AHMED MOUKALLED (Cabinet Res. 9/2023). Immediate compliance review required.",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\Screening-Desktop\\screening-be\\storage\\evidence\\a31668e8-9c3d-4a6f-958d-48d3f8a52fe1\\COMUAE_HassanAhmedMoukalled_Iss_20261024_NotClear.pdf"
+      }
+    ]
+  },
+  {
+    "id": "83085228-8272-4486-be39-cd6c2c152e70",
+    "createdAt": "2026-10-23T19:11:13.124Z",
+    "subjectName": "mahmoud hasssan",
+    "subjectType": "Individual",
+    "clientAccountName": "",
+    "clientRef": "",
+    "selectedDateType": "issDate",
+    "selectedDate": "2026-10-24",
+    "issDate": "2026-10-24",
+    "expDate": "",
+    "signedDate": "",
+    "checkDate": "2026-10-23",
+    "googleSearchQuery": "\"mahmoud hasssan\"",
+    "overallStatus": "PASSED_CLEARED",
+    "sourceListVersions": {
+      "OFAC": {
+        "sourceKey": "OFAC",
+        "name": "OFAC Sanctions List (US Treasury)",
+        "portalUrl": "https://sanctionssearch.ofac.treas.gov/default.aspx",
+        "filename": "OFAC_List_2026-10-23.dat",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\Screening-Desktop\\screening-be\\storage\\source-lists\\OFAC_List_2026-10-23.dat",
+        "downloadDate": "2026-10-23",
+        "timestamp": "2026-10-23T18:55:41.409Z",
+        "sizeBytes": 5744136,
+        "hash": "96dade5a1cde8c9746937b4859ad75d8f2a34eed1a4046cc1f2240a830f70bda",
+        "status": "SUCCESS",
+        "note": "Successfully downloaded from official endpoint (5609.5 KB)"
+      },
+      "UN": {
+        "sourceKey": "UN",
+        "name": "UN Security Council Consolidated List",
+        "portalUrl": "https://main.un.org/securitycouncil/en/content/un-sc-consolidated-list",
+        "filename": "UN_List_2026-10-23.dat",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\Screening-Desktop\\screening-be\\storage\\source-lists\\UN_List_2026-10-23.dat",
+        "downloadDate": "2026-10-23",
+        "timestamp": "2026-10-23T18:55:57.523Z",
+        "sizeBytes": 2185396,
+        "hash": "a52a47a62939482afdba2ec2becb86c88a5d6a93875665b4c8f11e99cda1d2a4",
+        "status": "SUCCESS",
+        "note": "Successfully downloaded from official endpoint (2134.2 KB)"
+      },
+      "UAE": {
+        "sourceKey": "UAE",
+        "name": "UAE Executive Office for Control & Non-Proliferation (IEC)",
+        "portalUrl": "https://www.uaeiec.gov.ae/en-us/un-page",
+        "filename": "UAE_List_2026-10-23.dat",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\Screening-Desktop\\screening-be\\storage\\source-lists\\UAE_List_2026-10-23.dat",
+        "downloadDate": "2026-10-23",
+        "timestamp": "2026-10-23T18:56:00.493Z",
+        "sizeBytes": 262140,
+        "hash": "f8431026b60db7e8545d7060a7f18e28380d4d4a2f542ccf6993678e63b40047",
+        "status": "SUCCESS",
+        "note": "Successfully downloaded from official endpoint (256.0 KB)"
+      }
+    },
+    "files": [
+      {
+        "key": "ADVERSE_MEDIA",
+        "sourceName": "Google Adverse Media",
+        "filename": "COMAdverseMedia_mahmoudhasssan_Iss_20261024_Clear.pdf",
+        "matchStatus": "CLEAR",
+        "matchDetails": "Google Adverse Media search completed. 0 adverse media headlines, criminal records, or sanctions articles found for \"mahmoud hasssan\".",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\Screening-Desktop\\screening-be\\storage\\evidence\\83085228-8272-4486-be39-cd6c2c152e70\\COMAdverseMedia_mahmoudhasssan_Iss_20261024_Clear.pdf"
+      },
+      {
+        "key": "OFAC",
+        "sourceName": "OFAC Sanctions Search",
+        "filename": "COMOFAC_mahmoudhasssan_Iss_20261024_Clear.pdf",
+        "matchStatus": "CLEAR",
+        "matchDetails": "OFAC query returned 0 records. Subject \"mahmoud hasssan\" cleared against active OFAC SDN registry.",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\Screening-Desktop\\screening-be\\storage\\evidence\\83085228-8272-4486-be39-cd6c2c152e70\\COMOFAC_mahmoudhasssan_Iss_20261024_Clear.pdf"
+      },
+      {
+        "key": "UN",
+        "sourceName": "UN Consolidated List",
+        "filename": "COMUN_mahmoudhasssan_Iss_20261024_Clear.pdf",
+        "matchStatus": "CLEAR",
+        "matchDetails": "Ctrl+F scan on official UN Consolidated List (Alphabetical order) returned 0 matches for \"mahmoud hasssan\". Subject cleared.",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\Screening-Desktop\\screening-be\\storage\\evidence\\83085228-8272-4486-be39-cd6c2c152e70\\COMUN_mahmoudhasssan_Iss_20261024_Clear.pdf"
+      },
+      {
+        "key": "UAE",
+        "sourceName": "UAE Local List (IEC)",
+        "filename": "COMUAE_mahmoudhasssan_Iss_20261024_Clear.pdf",
+        "matchStatus": "CLEAR",
+        "matchDetails": "Ctrl+F scan on official UAE Local Terrorist List (LS 130923) returned 0 matches for \"mahmoud hasssan\". Subject cleared against national registry.",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\Screening-Desktop\\screening-be\\storage\\evidence\\83085228-8272-4486-be39-cd6c2c152e70\\COMUAE_mahmoudhasssan_Iss_20261024_Clear.pdf"
+      }
+    ]
+  },
+  {
+    "id": "f9b1be88-ae39-4dab-ac99-56b5f6cf60d8",
+    "createdAt": "2026-10-23T19:09:06.082Z",
+    "subjectName": "al sayed",
+    "subjectType": "Entity",
+    "clientAccountName": "",
+    "clientRef": "",
+    "selectedDateType": null,
+    "selectedDate": "",
+    "issDate": "",
+    "expDate": "",
+    "signedDate": "",
+    "checkDate": "2026-10-23",
+    "googleSearchQuery": "\"al sayed\"",
+    "overallStatus": "FLAGGED_FOR_REVIEW",
+    "sourceListVersions": {
+      "OFAC": {
+        "sourceKey": "OFAC",
+        "name": "OFAC Sanctions List (US Treasury)",
+        "portalUrl": "https://sanctionssearch.ofac.treas.gov/default.aspx",
+        "filename": "OFAC_List_2026-10-23.dat",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\Screening-Desktop\\screening-be\\storage\\source-lists\\OFAC_List_2026-10-23.dat",
+        "downloadDate": "2026-10-23",
+        "timestamp": "2026-10-23T18:55:41.409Z",
+        "sizeBytes": 5744136,
+        "hash": "96dade5a1cde8c9746937b4859ad75d8f2a34eed1a4046cc1f2240a830f70bda",
+        "status": "SUCCESS",
+        "note": "Successfully downloaded from official endpoint (5609.5 KB)"
+      },
+      "UN": {
+        "sourceKey": "UN",
+        "name": "UN Security Council Consolidated List",
+        "portalUrl": "https://main.un.org/securitycouncil/en/content/un-sc-consolidated-list",
+        "filename": "UN_List_2026-10-23.dat",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\Screening-Desktop\\screening-be\\storage\\source-lists\\UN_List_2026-10-23.dat",
+        "downloadDate": "2026-10-23",
+        "timestamp": "2026-10-23T18:55:57.523Z",
+        "sizeBytes": 2185396,
+        "hash": "a52a47a62939482afdba2ec2becb86c88a5d6a93875665b4c8f11e99cda1d2a4",
+        "status": "SUCCESS",
+        "note": "Successfully downloaded from official endpoint (2134.2 KB)"
+      },
+      "UAE": {
+        "sourceKey": "UAE",
+        "name": "UAE Executive Office for Control & Non-Proliferation (IEC)",
+        "portalUrl": "https://www.uaeiec.gov.ae/en-us/un-page",
+        "filename": "UAE_List_2026-10-23.dat",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\Screening-Desktop\\screening-be\\storage\\source-lists\\UAE_List_2026-10-23.dat",
+        "downloadDate": "2026-10-23",
+        "timestamp": "2026-10-23T18:56:00.493Z",
+        "sizeBytes": 262140,
+        "hash": "f8431026b60db7e8545d7060a7f18e28380d4d4a2f542ccf6993678e63b40047",
+        "status": "SUCCESS",
+        "note": "Successfully downloaded from official endpoint (256.0 KB)"
+      }
+    },
+    "files": [
+      {
+        "key": "ADVERSE_MEDIA",
+        "sourceName": "Google Adverse Media",
+        "filename": "COMAdverseMedia_alsayed_NotClear.pdf",
+        "matchStatus": "POTENTIAL_MATCH",
+        "matchDetails": "Google Adverse Media detected 50 adverse media, criminal, or sanctions record(s) for \"al sayed\". Findings: A closer look at Michigan's Senate race | US midterms: key takeaways from Senate debates in Michigan, Georgia and Maine",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\Screening-Desktop\\screening-be\\storage\\evidence\\f9b1be88-ae39-4dab-ac99-56b5f6cf60d8\\COMAdverseMedia_alsayed_NotClear.pdf"
+      },
+      {
+        "key": "OFAC",
+        "sourceName": "OFAC Sanctions Search",
+        "filename": "COMOFAC_alsayed_Clear.pdf",
+        "matchStatus": "CLEAR",
+        "matchDetails": "OFAC query returned 0 records. Subject \"al sayed\" cleared against active OFAC SDN registry.",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\Screening-Desktop\\screening-be\\storage\\evidence\\f9b1be88-ae39-4dab-ac99-56b5f6cf60d8\\COMOFAC_alsayed_Clear.pdf"
+      },
+      {
+        "key": "UN",
+        "sourceName": "UN Consolidated List",
+        "filename": "COMUN_alsayed_Clear.pdf",
+        "matchStatus": "CLEAR",
+        "matchDetails": "Ctrl+F scan on official UN Consolidated List (Alphabetical order) returned 0 matches for \"al sayed\". Subject cleared.",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\Screening-Desktop\\screening-be\\storage\\evidence\\f9b1be88-ae39-4dab-ac99-56b5f6cf60d8\\COMUN_alsayed_Clear.pdf"
+      },
+      {
+        "key": "UAE",
+        "sourceName": "UAE Local List (IEC)",
+        "filename": "COMUAE_alsayed_Clear.pdf",
+        "matchStatus": "CLEAR",
+        "matchDetails": "Ctrl+F scan on official UAE Local Terrorist List (LS 130923) returned 0 matches for \"al sayed\". Subject cleared against national registry.",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\Screening-Desktop\\screening-be\\storage\\evidence\\f9b1be88-ae39-4dab-ac99-56b5f6cf60d8\\COMUAE_alsayed_Clear.pdf"
+      }
+    ]
+  },
+  {
+    "id": "c09f6898-df13-451c-b9c8-9a5568f1aec2",
+    "createdAt": "2026-10-23T19:00:22.277Z",
+    "subjectName": "Jerin Davis",
+    "subjectType": "Individual",
+    "clientAccountName": "Acme General Trading LLC",
+    "clientRef": "Acme General Trading LLC",
+    "selectedDateType": null,
+    "selectedDate": "",
+    "issDate": "",
+    "expDate": "",
+    "signedDate": "",
+    "checkDate": "2026-10-23",
+    "googleSearchQuery": "\"Jerin Davis\"",
+    "overallStatus": "FLAGGED_FOR_REVIEW",
+    "sourceListVersions": {
+      "OFAC": {
+        "sourceKey": "OFAC",
+        "name": "OFAC Sanctions List (US Treasury)",
+        "portalUrl": "https://sanctionssearch.ofac.treas.gov/default.aspx",
+        "filename": "OFAC_List_2026-10-23.dat",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\Screening-Desktop\\screening-be\\storage\\source-lists\\OFAC_List_2026-10-23.dat",
+        "downloadDate": "2026-10-23",
+        "timestamp": "2026-10-23T18:55:41.409Z",
+        "sizeBytes": 5744136,
+        "hash": "96dade5a1cde8c9746937b4859ad75d8f2a34eed1a4046cc1f2240a830f70bda",
+        "status": "SUCCESS",
+        "note": "Successfully downloaded from official endpoint (5609.5 KB)"
+      },
+      "UN": {
+        "sourceKey": "UN",
+        "name": "UN Security Council Consolidated List",
+        "portalUrl": "https://main.un.org/securitycouncil/en/content/un-sc-consolidated-list",
+        "filename": "UN_List_2026-10-23.dat",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\Screening-Desktop\\screening-be\\storage\\source-lists\\UN_List_2026-10-23.dat",
+        "downloadDate": "2026-10-23",
+        "timestamp": "2026-10-23T18:55:57.523Z",
+        "sizeBytes": 2185396,
+        "hash": "a52a47a62939482afdba2ec2becb86c88a5d6a93875665b4c8f11e99cda1d2a4",
+        "status": "SUCCESS",
+        "note": "Successfully downloaded from official endpoint (2134.2 KB)"
+      },
+      "UAE": {
+        "sourceKey": "UAE",
+        "name": "UAE Executive Office for Control & Non-Proliferation (IEC)",
+        "portalUrl": "https://www.uaeiec.gov.ae/en-us/un-page",
+        "filename": "UAE_List_2026-10-23.dat",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\Screening-Desktop\\screening-be\\storage\\source-lists\\UAE_List_2026-10-23.dat",
+        "downloadDate": "2026-10-23",
+        "timestamp": "2026-10-23T18:56:00.493Z",
+        "sizeBytes": 262140,
+        "hash": "f8431026b60db7e8545d7060a7f18e28380d4d4a2f542ccf6993678e63b40047",
+        "status": "SUCCESS",
+        "note": "Successfully downloaded from official endpoint (256.0 KB)"
+      }
+    },
+    "files": [
+      {
+        "key": "ADVERSE_MEDIA",
+        "sourceName": "Google Adverse Media",
+        "filename": "COMAdverseMedia_JerinDavis_NotClear.pdf",
+        "matchStatus": "POTENTIAL_MATCH",
+        "matchDetails": "Google Adverse Media detected 1 adverse media, criminal, or sanctions record(s) for \"Jerin Davis\". Findings: Thrilling wins for STS, Oasis Water",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\Screening-Desktop\\screening-be\\storage\\evidence\\c09f6898-df13-451c-b9c8-9a5568f1aec2\\COMAdverseMedia_JerinDavis_NotClear.pdf"
+      },
+      {
+        "key": "OFAC",
+        "sourceName": "OFAC Sanctions Search",
+        "filename": "COMOFAC_JerinDavis_Clear.pdf",
+        "matchStatus": "CLEAR",
+        "matchDetails": "OFAC query returned 0 records. Subject \"Jerin Davis\" cleared against active OFAC SDN registry.",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\Screening-Desktop\\screening-be\\storage\\evidence\\c09f6898-df13-451c-b9c8-9a5568f1aec2\\COMOFAC_JerinDavis_Clear.pdf"
+      },
+      {
+        "key": "UN",
+        "sourceName": "UN Consolidated List",
+        "filename": "COMUN_JerinDavis_Clear.pdf",
+        "matchStatus": "CLEAR",
+        "matchDetails": "Ctrl+F scan on official UN Consolidated List (Alphabetical order) returned 0 matches for \"Jerin Davis\". Subject cleared.",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\Screening-Desktop\\screening-be\\storage\\evidence\\c09f6898-df13-451c-b9c8-9a5568f1aec2\\COMUN_JerinDavis_Clear.pdf"
+      },
+      {
+        "key": "UAE",
+        "sourceName": "UAE Local List (IEC)",
+        "filename": "COMUAE_JerinDavis_Clear.pdf",
+        "matchStatus": "CLEAR",
+        "matchDetails": "Ctrl+F scan on official UAE Local Terrorist List (LS 130923) returned 0 matches for \"Jerin Davis\". Subject cleared against national registry.",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\Screening-Desktop\\screening-be\\storage\\evidence\\c09f6898-df13-451c-b9c8-9a5568f1aec2\\COMUAE_JerinDavis_Clear.pdf"
+      }
+    ]
+  },
+  {
+    "id": "28b034e5-9b23-4c06-9923-f5755ac5c39c",
+    "createdAt": "2026-10-23T18:56:17.061Z",
+    "subjectName": "Jerin Davis",
+    "subjectType": "Individual",
+    "clientAccountName": "CL-2026-089",
+    "clientRef": "CL-2026-089",
+    "selectedDateType": "issDate",
+    "selectedDate": "2026-10-23",
+    "issDate": "2026-10-23",
+    "expDate": "",
+    "signedDate": "",
+    "checkDate": "2026-10-23",
+    "googleSearchQuery": "",
+    "overallStatus": "PASSED_CLEARED",
+    "sourceListVersions": {
+      "OFAC": {
+        "sourceKey": "OFAC",
+        "name": "OFAC Sanctions List (US Treasury)",
+        "portalUrl": "https://sanctionssearch.ofac.treas.gov/default.aspx",
+        "filename": "OFAC_List_2026-10-23.dat",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\Screening-Desktop\\screening-be\\storage\\source-lists\\OFAC_List_2026-10-23.dat",
+        "downloadDate": "2026-10-23",
+        "timestamp": "2026-10-23T18:55:41.409Z",
+        "sizeBytes": 5744136,
+        "hash": "96dade5a1cde8c9746937b4859ad75d8f2a34eed1a4046cc1f2240a830f70bda",
+        "status": "SUCCESS",
+        "note": "Successfully downloaded from official endpoint (5609.5 KB)"
+      },
+      "UN": {
+        "sourceKey": "UN",
+        "name": "UN Security Council Consolidated List",
+        "portalUrl": "https://main.un.org/securitycouncil/en/content/un-sc-consolidated-list",
+        "filename": "UN_List_2026-10-23.dat",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\Screening-Desktop\\screening-be\\storage\\source-lists\\UN_List_2026-10-23.dat",
+        "downloadDate": "2026-10-23",
+        "timestamp": "2026-10-23T18:55:57.523Z",
+        "sizeBytes": 2185396,
+        "hash": "a52a47a62939482afdba2ec2becb86c88a5d6a93875665b4c8f11e99cda1d2a4",
+        "status": "SUCCESS",
+        "note": "Successfully downloaded from official endpoint (2134.2 KB)"
+      },
+      "UAE": {
+        "sourceKey": "UAE",
+        "name": "UAE Executive Office for Control & Non-Proliferation (IEC)",
+        "portalUrl": "https://www.uaeiec.gov.ae/en-us/un-page",
+        "filename": "UAE_List_2026-10-23.dat",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\Screening-Desktop\\screening-be\\storage\\source-lists\\UAE_List_2026-10-23.dat",
+        "downloadDate": "2026-10-23",
+        "timestamp": "2026-10-23T18:56:00.493Z",
+        "sizeBytes": 262140,
+        "hash": "f8431026b60db7e8545d7060a7f18e28380d4d4a2f542ccf6993678e63b40047",
+        "status": "SUCCESS",
+        "note": "Successfully downloaded from official endpoint (256.0 KB)"
+      }
+    },
+    "files": [
+      {
+        "key": "ADVERSE_MEDIA",
+        "sourceName": "Google Adverse Media",
+        "filename": "COMAdverseMedia_JerinDavis_Iss_20261023_Clear.pdf",
+        "matchStatus": "CLEAR",
+        "matchDetails": "Google Adverse Media search completed. 0 adverse media headlines, criminal records, or sanctions articles found for \"Jerin Davis\".",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\Screening-Desktop\\screening-be\\storage\\evidence\\28b034e5-9b23-4c06-9923-f5755ac5c39c\\COMAdverseMedia_JerinDavis_Iss_20261023_Clear.pdf"
+      },
+      {
+        "key": "OFAC",
+        "sourceName": "OFAC Sanctions Search",
+        "filename": "COMOFAC_JerinDavis_Iss_20261023_Clear.pdf",
+        "matchStatus": "CLEAR",
+        "matchDetails": "OFAC query returned 0 records. Subject \"Jerin Davis\" cleared against active OFAC SDN registry.",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\Screening-Desktop\\screening-be\\storage\\evidence\\28b034e5-9b23-4c06-9923-f5755ac5c39c\\COMOFAC_JerinDavis_Iss_20261023_Clear.pdf"
+      },
+      {
+        "key": "UN",
+        "sourceName": "UN Consolidated List",
+        "filename": "COMUN_JerinDavis_Iss_20261023_Clear.pdf",
+        "matchStatus": "CLEAR",
+        "matchDetails": "Ctrl+F scan on official UN Consolidated List (Alphabetical order) returned 0 matches for \"Jerin Davis\". Subject cleared.",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\Screening-Desktop\\screening-be\\storage\\evidence\\28b034e5-9b23-4c06-9923-f5755ac5c39c\\COMUN_JerinDavis_Iss_20261023_Clear.pdf"
+      },
+      {
+        "key": "UAE",
+        "sourceName": "UAE Local List (IEC)",
+        "filename": "COMUAE_JerinDavis_Iss_20261023_Clear.pdf",
+        "matchStatus": "CLEAR",
+        "matchDetails": "Ctrl+F scan on official UAE Local Terrorist List (LS 130923) returned 0 matches for \"Jerin Davis\". Subject cleared against national registry.",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\Screening-Desktop\\screening-be\\storage\\evidence\\28b034e5-9b23-4c06-9923-f5755ac5c39c\\COMUAE_JerinDavis_Iss_20261023_Clear.pdf"
+      }
+    ]
+  },
+  {
+    "id": "0d750391-d910-4d5f-8dac-d8186709ee86",
+    "createdAt": "2026-10-22T14:37:00.416Z",
+    "subjectName": "Jerin Davis",
+    "subjectType": "Individual",
+    "clientRef": "CL-2026-089",
+    "issDate": "2026-10-22",
+    "expDate": "2027-10-20",
+    "signedDate": "2026-10-22",
+    "checkDate": "2026-10-22",
+    "overallStatus": "PASSED_CLEARED",
+    "sourceListVersions": {
+      "OFAC": {
+        "sourceKey": "OFAC",
+        "name": "OFAC Sanctions List (US Treasury)",
+        "portalUrl": "https://sanctionssearch.ofac.treas.gov/default.aspx",
+        "filename": "OFAC_List_2026-10-22.dat",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\screening-be\\storage\\source-lists\\OFAC_List_2026-10-22.dat",
+        "downloadDate": "2026-10-22",
+        "timestamp": "2026-10-22T14:36:37.702Z",
+        "sizeBytes": 5744136,
+        "hash": "96dade5a1cde8c9746937b4859ad75d8f2a34eed1a4046cc1f2240a830f70bda",
+        "status": "SUCCESS",
+        "note": "Successfully downloaded from official endpoint (5609.5 KB)"
+      },
+      "UN": {
+        "sourceKey": "UN",
+        "name": "UN Security Council Consolidated List",
+        "portalUrl": "https://main.un.org/securitycouncil/en/content/un-sc-consolidated-list",
+        "filename": "UN_List_2026-10-22.dat",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\screening-be\\storage\\source-lists\\UN_List_2026-10-22.dat",
+        "downloadDate": "2026-10-22",
+        "timestamp": "2026-10-22T14:36:42.061Z",
+        "sizeBytes": 2185396,
+        "hash": "76201a92fd2087ea3e21c5c00ea7c2bda8fd69331f3a2c4c8ed6b02948c7b7b5",
+        "status": "SUCCESS",
+        "note": "Successfully downloaded from official endpoint (2134.2 KB)"
+      },
+      "UAE": {
+        "sourceKey": "UAE",
+        "name": "UAE Executive Office for Control & Non-Proliferation (IEC)",
+        "portalUrl": "https://www.uaeiec.gov.ae/en-us/un-page",
+        "filename": "UAE_List_2026-10-22.dat",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\screening-be\\storage\\source-lists\\UAE_List_2026-10-22.dat",
+        "downloadDate": "2026-10-22",
+        "timestamp": "2026-10-22T14:36:46.341Z",
+        "sizeBytes": 262140,
+        "hash": "cc6ed31de7d134a8fc4392b32a956d69ac6fac545bdcd591f343c207ef391f67",
+        "status": "SUCCESS",
+        "note": "Successfully downloaded from official endpoint (256.0 KB)"
+      }
+    },
+    "files": [
+      {
+        "key": "ADVERSE_MEDIA",
+        "sourceName": "Google Adverse Media",
+        "filename": "COMAdverseMedia_Jerin_Davis_Iss_2026-10-22_Exp_2027-10-20_Signed_2026-10-22.pdf",
+        "matchStatus": "CLEAR",
+        "matchDetails": "Google Adverse Media search completed. 0 adverse media headlines, criminal records, or sanctions articles found for \"Jerin Davis\".",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\screening-be\\storage\\evidence\\0d750391-d910-4d5f-8dac-d8186709ee86\\COMAdverseMedia_Jerin_Davis_Iss_2026-10-22_Exp_2027-10-20_Signed_2026-10-22.pdf"
+      },
+      {
+        "key": "OFAC",
+        "sourceName": "OFAC Sanctions Search",
+        "filename": "COMOFAC_Jerin_Davis_Iss_2026-10-22_Exp_2027-10-20_Signed_2026-10-22.pdf",
+        "matchStatus": "CLEAR",
+        "matchDetails": "OFAC query returned 0 records. Subject \"Jerin Davis\" cleared against active OFAC SDN registry.",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\screening-be\\storage\\evidence\\0d750391-d910-4d5f-8dac-d8186709ee86\\COMOFAC_Jerin_Davis_Iss_2026-10-22_Exp_2027-10-20_Signed_2026-10-22.pdf"
+      },
+      {
+        "key": "UN",
+        "sourceName": "UN Consolidated List",
+        "filename": "COMUN_Jerin_Davis_Iss_2026-10-22_Exp_2027-10-20_Signed_2026-10-22.pdf",
+        "matchStatus": "CLEAR",
+        "matchDetails": "Ctrl+F scan on official UN Consolidated List (Alphabetical order) returned 0 matches for \"Jerin Davis\". Subject cleared.",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\screening-be\\storage\\evidence\\0d750391-d910-4d5f-8dac-d8186709ee86\\COMUN_Jerin_Davis_Iss_2026-10-22_Exp_2027-10-20_Signed_2026-10-22.pdf"
+      },
+      {
+        "key": "UAE",
+        "sourceName": "UAE Local List (IEC)",
+        "filename": "COMUAE_Jerin_Davis_Iss_2026-10-22_Exp_2027-10-20_Signed_2026-10-22.pdf",
+        "matchStatus": "CLEAR",
+        "matchDetails": "Ctrl+F scan on official UAE Local Terrorist List (LS 130923) returned 0 matches for \"Jerin Davis\". Subject cleared against national registry.",
+        "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\screening-be\\storage\\evidence\\0d750391-d910-4d5f-8dac-d8186709ee86\\COMUAE_Jerin_Davis_Iss_2026-10-22_Exp_2027-10-20_Signed_2026-10-22.pdf"
+      }
+    ]
+  },
+  {
     "id": "ec828dea-011e-401c-b671-ca0c73d6601d",
     "createdAt": "2026-10-20T12:05:40.128Z",
     "subjectName": "Yousef Hassan Ahmad Almulla",

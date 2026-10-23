@@ -42,6 +42,7 @@ export async function createEvidencePDF({
   portalUrl,
   subjectName,
   subjectType,
+  clientAccountName,
   clientRef,
   issDate,
   expDate,
@@ -54,6 +55,14 @@ export async function createEvidencePDF({
   outputPath
 }) {
   const pdfDoc = await PDFDocument.create();
+
+  const accountDisplay = clientAccountName || clientRef || 'N/A';
+
+  const dateParts = [];
+  if (issDate && issDate.toLowerCase() !== 'notset') dateParts.push(`Iss: ${issDate}`);
+  if (expDate && expDate.toLowerCase() !== 'notset') dateParts.push(`Exp: ${expDate}`);
+  if (signedDate && signedDate.toLowerCase() !== 'notset') dateParts.push(`Signed: ${signedDate}`);
+  const datesSummary = dateParts.length > 0 ? dateParts.join(' | ') : 'Date: None';
 
   if (screenshotBuffer && screenshotBuffer.length > 0) {
     try {
@@ -90,14 +99,14 @@ export async function createEvidencePDF({
         maxLen: 80
       });
 
-      const stampMeta = `Subject: ${subjectName} (${subjectType || 'Individual'}) | Iss: ${issDate || 'NotSet'} | Exp: ${expDate || 'NotSet'} | Signed: ${signedDate || 'NotSet'} | Check Date: ${checkDate || new Date().toISOString().split('T')[0]}`;
+      const stampMeta = `Subject: ${subjectName} (${subjectType || 'Individual'}) | Account: ${accountDisplay} | ${datesSummary} | Check Date: ${checkDate || new Date().toISOString().split('T')[0]}`;
       safeDrawText(page, stampMeta, {
-        x: 480,
+        x: 440,
         y: imgHeight + 15,
         size: 9.5,
         font: fontRegular,
         color: rgb(0.85, 0.9, 0.95),
-        maxLen: 120
+        maxLen: 140
       });
 
       // Status indicator tag
@@ -230,7 +239,7 @@ export async function createEvidencePDF({
     maxLen: 60
   });
 
-  safeDrawText(page, `Type: ${subjectType || 'Individual'}   |   Client Ref: ${clientRef || 'N/A'}`, {
+  safeDrawText(page, `Type: ${subjectType || 'Individual'}   |   Client Account: ${accountDisplay}`, {
     x: 65,
     y: height - 205,
     size: 10,
@@ -239,7 +248,11 @@ export async function createEvidencePDF({
     maxLen: 80
   });
 
-  safeDrawText(page, `Issuance Date: ${issDate || 'NotSet'}    Expiry Date: ${expDate || 'NotSet'}`, {
+  const displayIss = issDate && issDate.toLowerCase() !== 'notset' ? issDate : '—';
+  const displayExp = expDate && expDate.toLowerCase() !== 'notset' ? expDate : '—';
+  const displaySigned = signedDate && signedDate.toLowerCase() !== 'notset' ? signedDate : '—';
+
+  safeDrawText(page, `Issuance Date: ${displayIss}    Expiry Date: ${displayExp}`, {
     x: 600,
     y: height - 185,
     size: 10,
@@ -247,7 +260,7 @@ export async function createEvidencePDF({
     color: rgb(0.35, 0.4, 0.5)
   });
 
-  safeDrawText(page, `Signed Date: ${signedDate || 'NotSet'}    Check/Audit Date: ${checkDate || new Date().toISOString().split('T')[0]}`, {
+  safeDrawText(page, `Signed Date: ${displaySigned}    Check/Audit Date: ${checkDate || new Date().toISOString().split('T')[0]}`, {
     x: 600,
     y: height - 205,
     size: 10,

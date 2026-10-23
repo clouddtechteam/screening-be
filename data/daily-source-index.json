@@ -1,38 +1,44 @@
 {
-  "lastCheckDate": "2026-10-20",
+  "lastCheckDate": "2026-10-23",
   "sources": {
     "OFAC": {
       "sourceKey": "OFAC",
       "name": "OFAC Sanctions List (US Treasury)",
       "portalUrl": "https://sanctionssearch.ofac.treas.gov/default.aspx",
-      "filename": "OFAC_List_2026-10-20.dat",
-      "filePath": "C:\\Users\\Mani Paruthippura\\OneDrive\\Desktop\\CLoudd\\screening-portal\\backend\\storage\\source-lists\\OFAC_List_2026-10-20.dat",
-      "downloadDate": "2026-10-20",
-      "timestamp": "2026-10-20T11:00:40.161Z",
-      "sizeBytes": 5741043,
-      "hash": "0dee0d2de5e5a240e3e545741ee2903cfa3508666d2f2841d5d1ff2d59f0ce71",
+      "filename": "OFAC_List_2026-10-23.dat",
+      "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\Screening-Desktop\\screening-be\\storage\\source-lists\\OFAC_List_2026-10-23.dat",
+      "downloadDate": "2026-10-23",
+      "timestamp": "2026-10-23T18:55:41.409Z",
+      "sizeBytes": 5744136,
+      "hash": "96dade5a1cde8c9746937b4859ad75d8f2a34eed1a4046cc1f2240a830f70bda",
       "status": "SUCCESS",
-      "note": "Successfully downloaded from official endpoint (5606.5 KB)"
+      "note": "Successfully downloaded from official endpoint (5609.5 KB)"
     },
     "UN": {
       "sourceKey": "UN",
       "name": "UN Security Council Consolidated List",
       "portalUrl": "https://main.un.org/securitycouncil/en/content/un-sc-consolidated-list",
-      "filename": "UN_List_2026-10-20.dat",
-      "downloadDate": "2026-10-20",
-      "timestamp": "2026-10-20T10:15:00.000Z",
-      "status": "VERIFIED_ACTIVE",
-      "note": "Consolidated UN-SC designations list verified"
+      "filename": "UN_List_2026-10-23.dat",
+      "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\Screening-Desktop\\screening-be\\storage\\source-lists\\UN_List_2026-10-23.dat",
+      "downloadDate": "2026-10-23",
+      "timestamp": "2026-10-23T18:55:57.523Z",
+      "sizeBytes": 2185396,
+      "hash": "a52a47a62939482afdba2ec2becb86c88a5d6a93875665b4c8f11e99cda1d2a4",
+      "status": "SUCCESS",
+      "note": "Successfully downloaded from official endpoint (2134.2 KB)"
     },
     "UAE": {
       "sourceKey": "UAE",
       "name": "UAE Executive Office for Control & Non-Proliferation (IEC)",
       "portalUrl": "https://www.uaeiec.gov.ae/en-us/un-page",
-      "filename": "UAE_List_2026-10-20.dat",
-      "downloadDate": "2026-10-20",
-      "timestamp": "2026-10-20T10:15:00.000Z",
-      "status": "VERIFIED_ACTIVE",
-      "note": "UAE IEC Local & UN TFS registry verified"
+      "filename": "UAE_List_2026-10-23.dat",
+      "filePath": "C:\\Users\\user\\Desktop\\Cloud D\\SP\\Screening-Desktop\\screening-be\\storage\\source-lists\\UAE_List_2026-10-23.dat",
+      "downloadDate": "2026-10-23",
+      "timestamp": "2026-10-23T18:56:00.493Z",
+      "sizeBytes": 262140,
+      "hash": "f8431026b60db7e8545d7060a7f18e28380d4d4a2f542ccf6993678e63b40047",
+      "status": "SUCCESS",
+      "note": "Successfully downloaded from official endpoint (256.0 KB)"
     }
   }
 }

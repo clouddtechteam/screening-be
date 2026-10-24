@@ -296,3 +296,38 @@ export async function refreshSourceLists(req, res) {
     return res.status(500).json({ error: err.message });
   }
 }
+
+export async function deleteCase(req, res) {
+  try {
+    const { id } = req.params;
+    const cases = getStoredCases();
+    const caseIndex = cases.findIndex(c => c.id === id);
+
+    if (caseIndex === -1) {
+      return res.status(404).json({ error: 'Case record not found' });
+    }
+
+    const [deletedCase] = cases.splice(caseIndex, 1);
+    saveStoredCases(cases);
+
+    // Delete associated physical evidence folder and PDFs from storage
+    const caseDir = path.join(EVIDENCE_BASE_DIR, id);
+    if (fs.existsSync(caseDir)) {
+      try {
+        fs.rmSync(caseDir, { recursive: true, force: true });
+      } catch (rmErr) {
+        console.warn(`Could not completely remove evidence directory ${caseDir}:`, rmErr);
+      }
+    }
+
+    return res.json({
+      success: true,
+      message: `Case and stored evidence PDFs deleted successfully.`,
+      deletedId: id,
+      subjectName: deletedCase.subjectName
+    });
+  } catch (error) {
+    console.error('Error deleting case:', error);
+    return res.status(500).json({ error: error.message || 'Failed to delete case' });
+  }
+}

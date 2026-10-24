@@ -357,7 +357,7 @@ export async function createEvidencePDF({
     maxLen: 140
   });
 
-  safeDrawText(page, `Audit Generated: ${new Date().toISOString()}  |  System: Screening Portal  |  Integrity: Verified Official Daily Registry`, {
+  safeDrawText(page, `Audit Generated: ${new Date().toISOString()}  |  System: EER Compliance Sanctions & Adverse Media Screener  |  Integrity: Verified Official Daily Registry`, {
     x: 65,
     y: 115,
     size: 8.5,
